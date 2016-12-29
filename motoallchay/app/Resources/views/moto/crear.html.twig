@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+
+        <div class="widget ">
+          <div class="widget-header">
+            <i class="icon-plus"></i>
+            <h3>Registrar Moto</h3>
+          </div>
+
+          <div class="widget-content">
+            {{ include("moto/widgets/moto_form.html.twig", {'form': form}) }}
+          </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

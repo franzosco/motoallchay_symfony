@@ -1,13 +1,60 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/bootstrap-responsive.min.css') }}" rel="stylesheet" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600"
+            rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/pages/dashboard.css') }}" rel="stylesheet" />
+    {% block css %}
+    {% endblock %}
+
+  </head>
+  <body>
+    {{ include("layouts/navbar.html.twig", {'user': app.user}) }}
+
+    {% block content %}
+    {% endblock %}
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/excanvas.min.js') }}"></script>
+    <script src="{{ asset('js/chart.min.js') }}"></script>
+    <script src="{{ asset('js/full-calendar/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('js/base.js') }}"></script>
+
+    <script>
+      $( document ).ready(function() {
+        var url = document.baseURI;
+
+        if (/moto/.test(url)){
+          var nav = $("#motos")[0];
+          nav.className += " active";
+        }
+        else if (/usuario/.test(url)){
+          var nav = $("#usuarios")[0];
+          nav.className += " active";
+        }
+        else if (/reporte/.test(url)){
+          var nav = $("#reportes")[0];
+          nav.className += " active";
+        }
+        else if (/reparacion/.test(url)){
+          var nav = $("#reparaciones")[0];
+          nav.className += " active";
+        }
+        else {
+          var nav = $("#homepage")[0];
+          nav.className += " active";
+        }
+      });
+    </script>
+
+    {% block js %}
+    {% endblock %}
+  </body>
 </html>

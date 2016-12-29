@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Motos {% endblock %}
+
+{% block css %}
+  <link href="{{ asset('css/widget-form-buscar.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span10 offset1">
+          <div class="widget widget-table action-table">
+            <div class="widget-header">
+              {{ include("layouts/header_list.html.twig",
+                { 'titulo': 'Lista de Motos', 'path_form': path('moto_list'),
+                  'path_crear': path('moto_crear'), 'busqueda': busqueda, 
+                  'ayuda': 'Placa de la moto' }) }}
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              {{ include("moto/widgets/moto_list.html.twig", {'motos': motos }) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+$( document ).ready(function() {
+  var value = $("[name='btnEliminar']");
+
+  value.each(function(element, index){
+    index.onclick = function (e){
+      var query = window.location.search.substring();
+      var baseURL = e.target.baseURI.replace(query, "");
+      var url = baseURL + "/eliminar/" + e.target.firstElementChild.value;
+
+      console.log(url);
+      if (confirm("Desea eliminar la Selección"))
+      {
+        $.get( url, function( data ) {
+          window.location.replace(e.target.baseURI);
+        });
+      }
+    };
+  });
+
+});
+
+</script>
+{% endblock %}

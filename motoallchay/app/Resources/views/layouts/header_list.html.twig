@@ -1,0 +1,16 @@
+<i class="icon-list-alt"></i>
+<h3> {{ titulo }}</h3>
+<a href="{{ path_crear }}" class="btn btn-default" style="padding-left:0;">
+<i class="icon-plus-sign"></i>
+  Nuevo
+</a>
+
+<form id="form_buscar" action="{{ path_form }}" method="GET">
+  <div class="input-append" style="margin:0;">
+    <input id="buscar_form_busqueda" type="text" name="busqueda" 
+     class="span2 m-wrap" placeholder="{{ ayuda }}" value="{{ busqueda }}">
+    <button id="buscar_form_submit" class="btn" type="submit">
+      <i class="icon-search"></i>
+    </button>
+  </div>
+</form>

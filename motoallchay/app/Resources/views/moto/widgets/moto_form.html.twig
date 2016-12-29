@@ -1,0 +1,49 @@
+
+{{ form_start(form, { 'attr': {'class': 'form-horizontal', 'id': 'form_moto'} }) }}
+
+  <div class="control-group">
+    {{ form_label(form.placa, 'Ingrese la placa' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.placa, {'attr': {'class': 'span5 disabled'}}) }}
+      {{ form_errors(form.placa) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.cliente_dni, 'DNI del cliente' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.cliente_dni, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.cliente_dni) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.marca, 'Marca de la Moto' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.marca, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.marca) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.color, 'Color de la moto' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.color, {'attr': {'class': 'span3'}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.descripcion, 'Descripción' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.descripcion, {'attr': {'class': 'span5', 'rows': '4'}}) }}
+    </div>
+  </div>
+
+  <div class="form-actions">
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    <a href="{{ url('moto_list') }}" class="btn">
+      <i class="icon-arrow-left"></i> Cancel
+    </a>
+  </div>
+  
+{{ form_end(form) }}

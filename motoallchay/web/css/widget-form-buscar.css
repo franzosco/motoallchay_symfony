@@ -1,0 +1,12 @@
+#form_buscar {
+  display: inline-block;
+  float: right;
+  margin: 0 8px 0 0;
+  padding: 0;
+}
+#buscar_form_busqueda {
+  margin: 0;
+}
+#buscar_form_submit {
+  padding-left: 0;
+}

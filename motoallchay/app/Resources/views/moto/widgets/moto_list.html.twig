@@ -1,0 +1,57 @@
+{% for moto in motos %}
+  {% if loop.first  %}
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Moto Placa</th>
+        <th>Cliente DNI</th>
+        <th>Color</th>
+        <th>Marca</th>
+        <th class="td-actions">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% endif %}
+    <tr>
+      <td>{{ moto.placa }}</td>
+      <td>{{ moto.clienteDni }}</td>
+      <td>{{ moto.color }}</td>
+      <td>{{ moto.marca }}</td>
+      <td class="td-actions">
+        <a href="{{ path('moto_actualizar', {'id': moto.id}) }}" class="btn btn-primary btn-mini">
+          <i class="icon-edit"></i>
+        </a>
+        <button class="btn btn-danger btn-mini" name="btnEliminar">
+          <input type="text" value="{{ moto.id }}" class="hidden">
+          <i class="icon-remove"></i>
+        </button>
+      </td>
+    </tr>
+  {% if loop.last %}
+    </tbody>
+  </table>
+  
+  <div class="form-actions">
+    <div class="btn-group" role="group" aria-label="...">
+    
+    {% if pagina > 1 %}
+    <a href="{{ path('moto_list') }}?paginate={{ pagina - 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Anterior</a>
+    <button type="button" class="btn btn-default">Página {{ pagina }}</button>
+    <a href="{{ path('moto_list') }}?paginate={{ pagina + 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Siguiente</a>
+    {% else %}
+    <button type="button" class="btn btn-default">Página {{ pagina }}</button>
+    <a href="{{ path('moto_list') }}?paginate={{ pagina + 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Siguiente</a>
+    {% endif %}
+
+    </div>
+  </div>
+
+  {% endif %}
+{% else %}
+    <div class="alert alert-info">
+      No se ayaron resultados
+    </div>
+{% endfor %}

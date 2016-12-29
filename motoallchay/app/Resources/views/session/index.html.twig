@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+  <link href="{{ asset('css/pages/signin.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+  {% if app.user %}
+
+  {% else %}
+      {{ include("session/login.html.twig", {'user': app.user}) }}
+  {% endif %}
+
+{% endblock %}

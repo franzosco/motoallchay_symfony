@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+        <div class="widget ">
+          <div class="widget-header">
+            <i class="icon-plus"></i>
+            <h3>Registrar Moto</h3>
+            <button type="button" class="btn btn-danger" id="btnEliminar" 
+              style="float: right; margin: 6px 6px 0 0">
+              <a href="{{ path('moto_eliminar', { 'id': id }) }}" hidden></a>
+              Eliminar
+            </button>
+          </div>
+          <div class="widget-content">
+
+            {{ include("moto/widgets/moto_form.html.twig", {'form': form}) }}
+            
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block js %}
+<script>
+
+$( document ).ready(function() {
+  $("#moto_form_placa")[0].disabled = true;
+  
+  var value = $("#btnEliminar")[0];
+
+  value.onclick = function(e){
+    console.log(e.target.firstElementChild.href);
+    if (confirm("Desea Eliminar?"))
+    {
+      window.location.replace(e.target.firstElementChild.href);
+    }
+  }
+
+  $("#form_moto").submit(function(e){
+    $("#moto_form_placa")[0].disabled = false;
+    return true;
+  }); 
+
+});
+
+</script>
+{% endblock %}
