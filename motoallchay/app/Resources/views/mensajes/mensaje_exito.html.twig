@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <div class="container">
+  
+  <div class="row">
+    
+    <div class="span12">
+      
+      <div class="error-container">
+        <h1>Ok</h1>
+        
+        <h2>{{ mensage }}</h2>
+        
+        <div class="error-actions">
+          <a href="{{ path(redirect_to) }}" class="btn btn-large btn-primary">
+            <i class="icon-chevron-left"></i>
+            &nbsp;
+            Ir al Panel de control
+          </a>
+          
+        </div> <!-- /error-actions -->
+              
+      </div> <!-- /error-container -->      
+      
+    </div> <!-- /span12 -->
+    
+  </div> <!-- /row -->
+  
+</div>
+{% endblock %}

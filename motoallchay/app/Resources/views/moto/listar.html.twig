@@ -22,7 +22,7 @@
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
-              {{ include("moto/widgets/moto_list.html.twig", {'motos': motos }) }}
+              {{ include("moto/widgets/moto_list.html.twig", {'motos': motos, 'user': app.user }) }}
             </div>
           </div>
         </div>
@@ -35,7 +35,7 @@
 
 {% block js %}
 <script type="text/javascript">
-
+{% if app.user.tipo %}
 $( document ).ready(function() {
   var value = $("[name='btnEliminar']");
 
@@ -43,6 +43,7 @@ $( document ).ready(function() {
     index.onclick = function (e){
       var query = window.location.search.substring();
       var baseURL = e.target.baseURI.replace(query, "");
+      
       var url = baseURL + "/eliminar/" + e.target.firstElementChild.value;
 
       console.log(url);
@@ -56,6 +57,6 @@ $( document ).ready(function() {
   });
 
 });
-
+{% endif %}
 </script>
 {% endblock %}

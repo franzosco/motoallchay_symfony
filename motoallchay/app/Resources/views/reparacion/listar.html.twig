@@ -35,7 +35,7 @@
 
 {% block js %}
 <script type="text/javascript">
-
+{%  if app.user.tipo == "Administrador" %}
 $( document ).ready(function() {
   var value = $("[name='btnEliminar']");
 
@@ -56,6 +56,6 @@ $( document ).ready(function() {
   });
 
 });
-
+{% endif %}
 </script>
 {% endblock %}

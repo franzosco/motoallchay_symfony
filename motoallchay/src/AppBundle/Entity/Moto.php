@@ -24,8 +24,11 @@ class Moto
     /**
      * @ORM\Column(type="string", length=7, unique=true)
      * @Assert\Regex(
-     *     pattern     = "/^\w{2,3}-\w{2,3}$/",
+     *     pattern     = "/^[A-z]{2,3}-[A-z]{2,3}$/",
      *     message="La placa no es inválida"
+     * )
+     * @Assert\NotBlank(
+     *     message="No se ingresó la placa"
      * )
      */
     private $placa;
@@ -35,6 +38,9 @@ class Moto
      * @Assert\Regex(
      *     pattern     = "/^\d{8}$/",
      *     message="El DNI del cliente es inválido"
+     * )
+     * @Assert\NotBlank(
+     *     message="No se ingresó el DNI"
      * )
      */
     private $cliente_dni;
@@ -50,6 +56,9 @@ class Moto
      * @Assert\Regex(
      *     pattern     = "/^\w+$/",
      *     message="La marca de la moto no es válida"
+     * )
+     * @Assert\NotBlank(
+     *     message="Ingrese la marca de la moto"
      * )
      */
     private $marca;

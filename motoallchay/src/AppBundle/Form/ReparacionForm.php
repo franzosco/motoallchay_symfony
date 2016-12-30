@@ -19,8 +19,8 @@ class ReparacionForm extends AbstractType
             ->add('placa', TextType::class)
             ->add('estado', ChoiceType::class, array(
                     'choices'  => array(
-                        'Pendiente' => 'Pendiente',
-                        'Entregado' => 'Entregado'
+                        'Pendiente' => 'Pendinte',
+                        'Entregado' => 'Entregado',
                     ),
                 ))
             ->add('servicios', ChoiceType::class, array(

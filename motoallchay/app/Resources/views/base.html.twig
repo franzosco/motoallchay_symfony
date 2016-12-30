@@ -50,7 +50,7 @@
     <script src="{{ asset('js/chart.min.js') }}"></script>
     <script src="{{ asset('js/full-calendar/fullcalendar.min.js') }}"></script>
     <script src="{{ asset('js/base.js') }}"></script>
-
+{% if app.user %}
     <script>
       $( document ).ready(function() {
         var url = document.baseURI;
@@ -60,8 +60,10 @@
           nav.className += " active";
         }
         else if (/usuario/.test(url)){
+          {% if app.user.tipo == "Administrador" %}
           var nav = $("#usuarios")[0];
           nav.className += " active";
+          {% endif %}
         }
         else if (/reporte/.test(url)){
           var nav = $("#reportes")[0];
@@ -77,7 +79,7 @@
         }
       });
     </script>
-
+{% endif %}
     {% block js %}
     {% endblock %}
   </body>

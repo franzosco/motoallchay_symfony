@@ -10,16 +10,20 @@
           <div class="widget-header">
             <i class="icon-plus"></i>
             <h3>Registrar Moto</h3>
+
+          {% if app.user.tipo == "Administrador" %}
             <button type="button" class="btn btn-danger" id="btnEliminar" 
               style="float: right; margin: 6px 6px 0 0">
               <a href="{{ path('usuario_eliminar', { 'id': id }) }}" hidden></a>
               Eliminar
             </button>
+          {% endif %}
+
           </div>
           <div class="widget-content">
 
             {{ include("usuario/widgets/usuario_form.html.twig", {'form': form}) }}
-            
+
           </div>
         </div>
         </div>
@@ -31,10 +35,10 @@
 
 {% block js %}
 <script>
-
 $( document ).ready(function() {
-  $("#usuario_form_username")[0].disabled = true;
+  $("#user_form_username")[0].disabled = true;
   
+{% if app.user.tipo == "Administrador" %}
   var value = $("#btnEliminar")[0];
 
   value.onclick = function(e){
@@ -44,13 +48,16 @@ $( document ).ready(function() {
       window.location.replace(e.target.firstElementChild.href);
     }
   }
+{% else %}
+  $("#user_form_tipo")[0].disabled = true;
+{% endif %}
 
   $("#form_usuario").submit(function(e){
-    $("#usuario_form_username")[0].disabled = false;
+    $("#user_form_username")[0].disabled = false;
+    $("#user_form_tipo")[0].disabled = false;
     return true;
   }); 
 
 });
-
 </script>
 {% endblock %}

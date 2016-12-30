@@ -1,0 +1,54 @@
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span6 offset2">
+          <div class="widget">
+            <div class="widget-header">
+              <div class="widget-header"> <i class="shortcut-icon icon-signal"></i>
+                <h3>Lista de Reportes para este usuario {{ user.tipo }}</h3>
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <div class="shortcuts">
+
+                <a href="{{ path('homepage') }}" class="shortcut">
+                  <i class="shortcut-icon icon-dashboard"></i>
+                  <span class="shortcut-label">Aplicación del Home</span> 
+                </a>
+
+                {% if user.tipo == "Administrador" %}
+                <a href="{{ path('usuario_list') }}" class="shortcut">
+                  <i class="shortcut-icon icon-user"></i>
+                  <span class="shortcut-label">Aplicación de Usuarios</span> 
+                </a>
+                {% endif %}
+
+                {% if user.tipo == "Administrador" or user.tipo == "Recepcionista" %}
+                <a href="{{ path('moto_list') }}" class="shortcut">
+                  <i class="shortcut-icon icon-truck"></i>
+                  <span class="shortcut-label">Aplicación de Motos</span> 
+                </a>
+
+                <a href="{{ path('reparacion_list') }}" class="shortcut">
+                  <i class="shortcut-icon icon-cogs"></i>
+                  <span class="shortcut-label">Aplicación de Reparaciones</span>
+                </a>
+                {% endif %}
+
+                {% if user.tipo == "Gerente" %}
+                <a href="{{ path('reportes_list') }}" class="shortcut">
+                  <i class="shortcut-icon icon-list-alt"></i>
+                  <span class="shortcut-label">Aplicación de Reportes</span> 
+                </a>
+                {% endif %}
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>

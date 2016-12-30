@@ -7,9 +7,9 @@
 {% block content %}
 
   {% if app.user %}
-
+    {{ include("security/aplicaciones.html.twig", {'user': app.user}) }}
   {% else %}
-  {{ include("session/login.html.twig", 
+    {{ include("security/login.html.twig", 
     {'user': app.user, 'username': last_username, 'error': error }) }}
   {% endif %}
 

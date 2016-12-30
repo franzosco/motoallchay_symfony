@@ -6,17 +6,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-use AppBundle\Entity\Usuario;
-use AppBundle\Form\UsuarioForm;
+use AppBundle\Entity\User;
+use AppBundle\Form\UserForm;
 
 class UsuarioController extends Controller
 {
     /**
-     * @Route("/usuario", name="usuario_list")
+     * @Route("/admin/usuario", name="usuario_list")
      */
     public function indexAction(Request $request)
     {
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Usuario');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         $busqueda = $request->query->get('busqueda');
 
@@ -45,13 +45,13 @@ class UsuarioController extends Controller
     }
 
     /**
-     * @Route("/usuario/crear", name="usuario_crear")
+     * @Route("/admin/usuario/crear", name="usuario_crear")
      */
     public function crearAction(Request $request)
     {
-        $usuario = new Usuario();
+        $usuario = new User();
 
-        $form = $this->createForm(UsuarioForm::class, $usuario);
+        $form = $this->createForm(UserForm::class, $usuario);
 
         $form->handleRequest($request);
 
@@ -81,14 +81,14 @@ class UsuarioController extends Controller
     }
 
     /**
-     * @Route("/usuario/actualizar/{id}", name="usuario_actualizar")
+     * @Route("/admin/usuario/actualizar/{id}", name="usuario_actualizar")
      */
     public function actualizarAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
         $usuario = $this->getDoctrine()
-            ->getRepository('AppBundle:Usuario')
+            ->getRepository('AppBundle:User')
             ->find($id);
 
         if (!$usuario) {
@@ -97,13 +97,17 @@ class UsuarioController extends Controller
             );
         }
 
-        $form = $this->createForm(UsuarioForm::class, $usuario);
+        $form = $this->createForm(UserForm::class, $usuario);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $usuario->setPassword(sha1($usuario->getPassword()));
+            $encoder = $this->get('security.password_encoder');
+            $encodedPassword = $encoder->encodePassword(
+                $usuario, $usuario->getPassword());
+
+            $usuario->setPassword($encodedPassword);
 
             $em = $this->getDoctrine()->getManager();
             $em->flush();
@@ -117,14 +121,14 @@ class UsuarioController extends Controller
     }
 
     /**
-     * @Route("/usuario/eliminar/{id}", name="usuario_eliminar")
+     * @Route("/admin/usuario/eliminar/{id}", name="usuario_eliminar")
      */
     public function eliminarAction($id)
     {
         $em = $this->getDoctrine()->getManager();
 
         $usuario = $this->getDoctrine()
-            ->getRepository('AppBundle:Usuario')
+            ->getRepository('AppBundle:User')
             ->find($id);
 
         if (!$usuario) {

@@ -27,6 +27,8 @@
       <td>{{ reparacion.precio }} <i><b>S/.</b></i></td>
 
       <td class="td-actions">
+
+      {% if app.user.tipo == "Administrador" %}
         <a href="{{ path('reparacion_actualizar', {'id': reparacion.id}) }}" class="btn btn-primary btn-mini">
           <i class="icon-edit"></i>
         </a>
@@ -34,6 +36,12 @@
           <input type="text" value="{{ reparacion.id }}" class="hidden">
           <i class="icon-remove"></i>
         </button>
+      {% else %}
+        <a href="{{ path('reparacion_entregar', {'id': reparacion.id}) }}" class="btn btn-primary btn-mini">
+          <i class="icon-edit"></i>
+        </a>
+      {% endif %}
+
       </td>
     </tr>
   {% if loop.last %}

@@ -15,7 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
-class UsuarioForm extends AbstractType
+class UserForm extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

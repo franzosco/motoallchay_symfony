@@ -53,8 +53,8 @@ class Reparacion
     private $moto;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="usuarios")
-     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="users")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $usuario;
 
@@ -144,11 +144,11 @@ class Reparacion
     /**
      * Set usuario
      *
-     * @param \AppBundle\Entity\Usuario $usuario
+     * @param \AppBundle\Entity\User $usuario
      *
      * @return Reparacion
      */
-    public function setUsuario(\AppBundle\Entity\Usuario $usuario = null)
+    public function setUser(\AppBundle\Entity\User $usuario = null)
     {
         $this->usuario = $usuario;
 
@@ -158,9 +158,9 @@ class Reparacion
     /**
      * Get usuario
      *
-     * @return \AppBundle\Entity\Usuario
+     * @return \AppBundle\Entity\User
      */
-    public function getUsuario()
+    public function getUser()
     {
         return $this->usuario;
     }

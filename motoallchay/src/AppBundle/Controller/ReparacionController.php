@@ -8,17 +8,19 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use AppBundle\Entity\Reparacion;
-use AppBundle\Entity\Usuario;
+use AppBundle\Entity\User;
 use AppBundle\Entity\Moto;
 use AppBundle\Form\ReparacionForm;
 
 class ReparacionController extends Controller
 {
     /**
-     * @Route("/reparacion", name="reparacion_list")
+     * @Route("/admin/reparacion", name="reparacion_list")
      */
     public function indexAction(Request $request)
     {
+        $is_admin = $this->get('security.authorization_checker')->isGranted('ROLE_ADMIN');
+
         $repository = $this->getDoctrine()->getRepository('AppBundle:Reparacion');
 
         $busqueda = $request->query->get('busqueda');
@@ -26,19 +28,43 @@ class ReparacionController extends Controller
         $paginate = $request->query->get('paginate') ?: 1;
         
         if ($busqueda && preg_match('/^(\w*-*)+$/', $busqueda))
-        {
-            $query = $repository->createQueryBuilder('r')
-                ->innerJoin('AppBundle:Moto', 'm')
-                ->where("m.placa LIKE '$busqueda%'")
-                ->setFirstResult(($paginate - 1) * 10)
-                ->setMaxResults($paginate * 10)
-                ->getQuery();
+        {   
+            if ($is_admin)
+            {
+                $query = $repository->createQueryBuilder('r')
+                    ->innerJoin('AppBundle:Moto', 'm')
+                    ->where("m.placa LIKE '$busqueda%'")
+                    ->setFirstResult(($paginate - 1) * 10)
+                    ->setMaxResults($paginate * 10)
+                    ->getQuery();
+            }
+            else
+            {
+                $query = $repository->createQueryBuilder('r')
+                    ->innerJoin('AppBundle:Moto', 'm')
+                    ->where("m.placa LIKE '$busqueda%'")
+                    ->andWhere("r.fecha_entrega IS NULL")
+                    ->setFirstResult(($paginate - 1) * 10)
+                    ->setMaxResults($paginate * 10)
+                    ->getQuery();
+            }
         }
         else {
-            $query = $repository->createQueryBuilder('r')
-                ->setFirstResult(($paginate - 1) * 10)
-                ->setMaxResults($paginate * 10)
-                ->getQuery();
+            if ($is_admin)
+            {
+                $query = $repository->createQueryBuilder('r')
+                    ->setFirstResult(($paginate - 1) * 10)
+                    ->setMaxResults($paginate * 10)
+                    ->getQuery();
+            }
+            else
+            {
+                $query = $repository->createQueryBuilder('r')
+                    ->where("r.fecha_entrega IS NULL")
+                    ->setFirstResult(($paginate - 1) * 10)
+                    ->setMaxResults($paginate * 10)
+                    ->getQuery();
+            }
         }
 
         $reparaciones = $query->getResult();
@@ -49,7 +75,7 @@ class ReparacionController extends Controller
     }
 
     /**
-     * @Route("/reparacion/crear", name="reparacion_crear")
+     * @Route("/admin/reparacion/crear", name="reparacion_crear")
      */
     public function crearAction(Request $request)
     {
@@ -68,7 +94,7 @@ class ReparacionController extends Controller
                 ->findOneByPlaca($data['placa']);
             
             $usuario = $this->getDoctrine()
-                ->getRepository('AppBundle:Usuario')
+                ->getRepository('AppBundle:User')
                 ->find(1);
             
             date_default_timezone_set('America/Lima');
@@ -78,7 +104,7 @@ class ReparacionController extends Controller
             $reparacion->setServicios($data['servicios']);
 
             $reparacion->setMoto($moto);
-            $reparacion->setUsuario($usuario);
+            $reparacion->setUser($usuario);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($reparacion);
@@ -93,7 +119,7 @@ class ReparacionController extends Controller
     }
 
     /**
-     * @Route("/reparacion/actualizar/{id}", name="reparacion_actualizar")
+     * @Route("/admin/reparacion/actualizar/{id}", name="reparacion_actualizar")
      */
     public function actualizarAction(Request $request, $id)
     {
@@ -114,7 +140,7 @@ class ReparacionController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
+            $reparacion->setEstado("Entregado");
             $em->flush();
 
             return $this->redirectToRoute('reparacion_list');
@@ -126,7 +152,42 @@ class ReparacionController extends Controller
     }
 
     /**
-     * @Route("/reparacion/eliminar/{id}", name="reparacion_eliminar")
+     * @Route("/admin/reparacion/entregar/{id}", name="reparacion_entregar")
+     */
+    public function entregarAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $reparacion = $this->getDoctrine()
+            ->getRepository('AppBundle:Reparacion')
+            ->find($id);
+
+        if (!$reparacion) {
+            throw $this->createNotFoundException(
+                'No product found for id ' . $id
+            );
+        }
+
+        $form = $this->createForm(ReparacionForm::class, $reparacion);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $reparacion->setEstado("Entregado");
+            $em->flush();
+
+            return $this->render('mensajes/mensaje_exito.html.twig', array(
+                "mensage" => "Se entregó la moto reparada", 'redirect_to' => 'reparacion_list'
+            ));
+        }
+
+        return $this->render('reparacion/actualizar.html.twig', array(
+            'form' => $form->createView(), 'id' => $id 
+        ));
+    }
+
+    /**
+     * @Route("/admin/reparacion/eliminar/{id}", name="reparacion_eliminar")
      */
     public function eliminarAction($id)
     {

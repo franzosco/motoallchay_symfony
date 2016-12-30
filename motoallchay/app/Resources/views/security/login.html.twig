@@ -1,0 +1,38 @@
+<div class="account-container">
+  
+  <div class="content clearfix">
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    <form  action="{{ path('security_login') }}" method="post">
+    
+      <h1>MotoAllchay Login</h1>
+
+      <div class="login-fields">
+        
+        <p>Por favor ingrese sus datos</p>
+        
+        <div class="field">
+          <label for="username">Username</label>
+          <input type="text" name="_username" placeholder="Username" class="login username-field" value="{{ username }}" required>
+        </div> <!-- /field -->
+        
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" name="_password" placeholder="Password" class="login password-field" required>
+        </div> <!-- /password -->
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+        
+      </div> <!-- /login-fields -->
+      
+      <div class="login-actions">
+        <button class="button btn btn-success btn-large">Iniciar Sesión</button>
+      </div> <!-- .actions -->
+      
+    </form>
+
+  </div> <!-- /content -->
+  
+</div>

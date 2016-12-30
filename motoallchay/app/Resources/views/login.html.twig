@@ -5,9 +5,9 @@
         <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
-    <form {{ path('homepage') }} method="post">
+    <form  action="{{ path('security_login') }}" method="post">
     
-      <h1>MotoAllchay Login</h1>    
+      <h1>MotoAllchay Login</h1>
 
       <div class="login-fields">
         
@@ -22,6 +22,8 @@
           <label for="password">Password</label>
           <input type="password" name="_password" placeholder="Password" class="login password-field" required>
         </div> <!-- /password -->
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
         
       </div> <!-- /login-fields -->
       

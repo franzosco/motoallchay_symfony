@@ -12,7 +12,7 @@ use AppBundle\Form\MotoForm;
 class MotoController extends Controller
 {
     /**
-     * @Route("/moto", name="moto_list")
+     * @Route("/admin/moto", name="moto_list")
      */
     public function indexAction(Request $request)
     {
@@ -45,7 +45,7 @@ class MotoController extends Controller
     }
 
     /**
-     * @Route("/moto/crear", name="moto_crear")
+     * @Route("/admin/moto/crear", name="moto_crear")
      */
     public function crearAction(Request $request)
     {
@@ -70,7 +70,7 @@ class MotoController extends Controller
     }
 
     /**
-     * @Route("/moto/actualizar/{id}", name="moto_actualizar")
+     * @Route("/admin/moto/actualizar/{id}", name="moto_actualizar")
      */
     public function actualizarAction(Request $request, $id)
     {
@@ -104,7 +104,7 @@ class MotoController extends Controller
     }
 
     /**
-     * @Route("/moto/eliminar/{id}", name="moto_eliminar")
+     * @Route("/admin/moto/eliminar/{id}", name="moto_eliminar")
      */
     public function eliminarAction($id)
     {

@@ -21,10 +21,14 @@
         <a href="{{ path('moto_actualizar', {'id': moto.id}) }}" class="btn btn-primary btn-mini">
           <i class="icon-edit"></i>
         </a>
+
+      {% if user.tipo == "Administrador" %}
         <button class="btn btn-danger btn-mini" name="btnEliminar">
           <input type="text" value="{{ moto.id }}" class="hidden">
           <i class="icon-remove"></i>
         </button>
+      {% endif %}
+
       </td>
     </tr>
   {% if loop.last %}

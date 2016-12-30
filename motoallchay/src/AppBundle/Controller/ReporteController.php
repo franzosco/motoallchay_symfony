@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ReporteController extends Controller
 {
     /**
-     * @Route("/reporte", name="reportes_list")
+     * @Route("/admin/reporte", name="reportes_list")
      */
     public function indexAction(Request $request)
     {
@@ -18,7 +18,7 @@ class ReporteController extends Controller
     }
 
     /**
-     * @Route("/reporte/monto_dia", name="reporte_monto_dia")
+     * @Route("/admin/reporte/monto_dia", name="reporte_monto_dia")
      */
     public function montoDiaAction(Request $request)
     {
@@ -43,7 +43,7 @@ class ReporteController extends Controller
     }
 
     /**
-     * @Route("/reporte/moto_mas_reparada", name="reporte_moto_mas")
+     * @Route("/admin/reporte/moto_mas_reparada", name="reporte_moto_mas")
      */
     public function motoMasReparadaaAction(Request $request)
     {
@@ -71,7 +71,7 @@ class ReporteController extends Controller
     }
 
     /**
-     * @Route("/reporte/servicios_mas", name="reporte_servicios_mas")
+     * @Route("/admin/reporte/servicios_mas", name="reporte_servicios_mas")
      */
     public function ServicioMasAction(Request $request)
     {
@@ -95,12 +95,12 @@ class ReporteController extends Controller
     }
 
     /**
-     * @Route("/reporte/listar_trabajadores", name="reporte_trabajadores_listar")
+     * @Route("/admin/reporte/listar_trabajadores", name="reporte_trabajadores_listar")
      */
     public function listaTrabajadoresAction(Request $request)
     {
 
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Usuario');
+        $repository = $this->getDoctrine()->getRepository('AppBundle:User');
 
         $query = $repository->createQueryBuilder('u')
             ->where("u.active = 1")
