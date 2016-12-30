@@ -1,0 +1,81 @@
+
+{{ form_start(form, { 'attr': {'class': 'form-horizontal', 'id': 'form_usuario'} }) }}
+
+  <div class="control-group">
+    {{ form_label(form.name, 'Nombres' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.name, {'attr': {'class': 'span5 disabled'}}) }}
+      {{ form_errors(form.name) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.last_name, 'Apellidos' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.last_name, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.last_name) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.dni, 'DNI' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.dni, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.dni) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.email, 'Email' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.email, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.email) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.username, 'Nombre de Usuario' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.username, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.username) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.password, 'Contraseña' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.password, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.password) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.tipo, 'Tipo' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.tipo, {'attr': {'class': 'span3'}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.active, 'Estado Activo' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.active, {'attr': {'checked': true}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.telefono, 'Teléfono' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.telefono, {'attr': {'class': 'span5'}}) }}
+      {{ form_errors(form.telefono) }}
+    </div>
+  </div>
+
+  <div class="form-actions">
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    <a href="{{ url('usuario_list') }}" class="btn">
+      <i class="icon-arrow-left"></i> Cancel
+    </a>
+  </div>
+  
+{{ form_end(form) }}

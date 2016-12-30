@@ -1,9 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    
+{% block title %} Reparaciones {% endblock %}
+
+{% block css %}
+  <link href="{{ asset('css/widget-form-buscar.css') }}" rel="stylesheet" />
 {% endblock %}
 
-{% block stylesheets %}
+{% block content %}
 
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span10 offset1">
+          <div class="widget widget-table action-table">
+            <div class="widget-header">
+              {{ include("layouts/header_list.html.twig",
+                { 'titulo':'Lista de Reparaciones','path_form': path('reparacion_list'),
+                  'path_crear': path('reparacion_crear'), 'busqueda': busqueda, 
+                  'ayuda': 'Placa de la moto' }) }}
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              {{ include("reparacion/widgets/reparacion_list.html.twig", {'reparaciones': reparaciones }) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+
+$( document ).ready(function() {
+  var value = $("[name='btnEliminar']");
+
+  value.each(function(element, index){
+    index.onclick = function (e){
+      var query = window.location.search.substring();
+      var baseURL = e.target.baseURI.replace(query, "");
+      var url = baseURL + "/eliminar/" + e.target.firstElementChild.value;
+
+      console.log(url);
+      if (confirm("Desea eliminar la Selección"))
+      {
+        $.get( url, function( data ) {
+          window.location.replace(e.target.baseURI);
+        });
+      }
+    };
+  });
+
+});
+
+</script>
 {% endblock %}

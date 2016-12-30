@@ -9,7 +9,8 @@
   {% if app.user %}
 
   {% else %}
-      {{ include("session/login.html.twig", {'user': app.user}) }}
+  {{ include("session/login.html.twig", 
+    {'user': app.user, 'username': last_username, 'error': error }) }}
   {% endif %}
 
 {% endblock %}

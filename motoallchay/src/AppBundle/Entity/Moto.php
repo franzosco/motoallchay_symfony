@@ -59,6 +59,10 @@ class Moto
      */
     private $descripcion;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Reparacion", mappedBy="reparacion")
+     */
+    private $reparaciones;
 
     /**
      * Get id
@@ -188,5 +192,46 @@ class Moto
     public function getDescripcion()
     {
         return $this->descripcion;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->reparaciones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add reparacione
+     *
+     * @param \AppBundle\Entity\Reparacion $reparacione
+     *
+     * @return Moto
+     */
+    public function addReparacione(\AppBundle\Entity\Reparacion $reparacione)
+    {
+        $this->reparaciones[] = $reparacione;
+
+        return $this;
+    }
+
+    /**
+     * Remove reparacione
+     *
+     * @param \AppBundle\Entity\Reparacion $reparacione
+     */
+    public function removeReparacione(\AppBundle\Entity\Reparacion $reparacione)
+    {
+        $this->reparaciones->removeElement($reparacione);
+    }
+
+    /**
+     * Get reparaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getReparaciones()
+    {
+        return $this->reparaciones;
     }
 }

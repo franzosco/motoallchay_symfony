@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Reportes {% endblock %}
+
+{% block css %}
+  <link href="{{ asset('css/widget-form-buscar.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span6 offset2">
+          <div class="widget">
+            <div class="widget-header">
+              <div class="widget-header"> <i class="shortcut-icon icon-signal"></i>
+                <h3>Lista de Reportes</h3>
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              <div class="shortcuts">
+
+                <a href="{{ path('reporte_monto_dia') }}" class="shortcut">
+                  <i class="shortcut-icon icon-money"></i>
+                  <span class="shortcut-label">Monto recaudado del día</span> 
+                </a>
+
+                <a href="{{ path('reporte_moto_mas') }}" class="shortcut">
+                  <i class="shortcut-icon icon-resize-vertical"></i>
+                  <span class="shortcut-label">Moto que más se repara</span> 
+                </a>
+
+                <a href="{{ path('reporte_servicios_mas') }}" class="shortcut">
+                  <i class="shortcut-icon icon-signal"></i>
+                  <span class="shortcut-label">Servivos más usados</span>
+                </a>
+
+                <a href="{{ path('reporte_trabajadores_listar') }}" class="shortcut">
+                  <i class="shortcut-icon icon-group"></i>
+                  <span class="shortcut-label">Lista de Trabajadores</span> 
+                </a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+
+{% endblock %}

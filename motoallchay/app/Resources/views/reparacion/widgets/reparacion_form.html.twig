@@ -1,0 +1,52 @@
+
+{{ form_start(form, { 'attr': {'class': 'form-horizontal', 'id': 'form_moto'} }) }}
+
+  <div class="control-group">
+    {{ form_label(form.placa, 'Placa' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.placa, {'attr': {'class': 'span5 disabled'}}) }}
+      {{ form_errors(form.placa) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.estado, 'Estado' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.estado, {'attr': {'class': 'span3'}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.servicios, 'Servicio' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.servicios, {'attr': {'class': 'span3'}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.descripcion, 'Descripción Adicional' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      {{ form_widget(form.descripcion, {'attr': {'class': 'span5 disabled', 'rows': 4}}) }}
+    </div>
+  </div>
+
+  <div class="control-group">
+    {{ form_label(form.precio, 'Precio' , {'label_attr': {'class': 'control-label'}}) }}
+    <div class="controls">
+      <div class="input-prepend input-append">
+        <span class="add-on"><b><i>S/.</i></b></span>
+        {{ form_widget(form.precio, {'attr': {'class': 'span2'}}) }}
+        <span class="add-on">.00</span>
+      </div>
+      {{ form_errors(form.precio) }}
+    </div>
+  </div>
+
+  <div class="form-actions">
+    {{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+    <a href="{{ url('reparacion_list') }}" class="btn">
+      <i class="icon-arrow-left"></i> Cancel
+    </a>
+  </div>
+  
+{{ form_end(form) }}

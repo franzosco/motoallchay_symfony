@@ -1,9 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
+{% block content %}
+    <div class="container">
+  
+  <div class="row">
     
-{% endblock %}
-
-{% block stylesheets %}
-
+    <div class="span12">
+      
+      <div class="error-container">
+        <h1>Ok</h1>
+        
+        <h2>La Reparación se ha sido eliminada con exito</h2>
+        
+        <div class="error-actions">
+          <a href="{{ path('reparacion_list') }}" class="btn btn-large btn-primary">
+            <i class="icon-chevron-left"></i>
+            &nbsp;
+            Regresar a la Lista de Reparaiones
+          </a>
+          
+        </div> <!-- /error-actions -->
+              
+      </div> <!-- /error-container -->      
+      
+    </div> <!-- /span12 -->
+    
+  </div> <!-- /row -->
+  
+</div>
 {% endblock %}

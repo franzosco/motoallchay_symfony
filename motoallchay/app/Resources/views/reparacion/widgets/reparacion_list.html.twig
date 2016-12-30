@@ -1,0 +1,66 @@
+{% for reparacion in reparaciones %}
+  {% if loop.first  %}
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Moto Placa</th>
+        <th>Cliente DNI</th>
+        <th>Fecha Ingreso</th>
+        <th>Fecha Entrega</th>
+        <th>Monto</th>
+        <th class="td-actions">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+  {% endif %}
+    <tr>
+      <td>{{ reparacion.Moto.placa }}</td>
+      <td>{{ reparacion.Moto.clienteDni }}</td>
+      <td>{{ reparacion.fechaIngreso|date }}</td>
+
+      {% if reparacion.fechaEntrega %}
+        <td>{{ reparacion.fechaEntrega|date }}</td>
+      {% else %}
+        <td><span class="label label-primary">Pendiente</span></td>
+      {% endif %}
+
+      <td>{{ reparacion.precio }} <i><b>S/.</b></i></td>
+
+      <td class="td-actions">
+        <a href="{{ path('reparacion_actualizar', {'id': reparacion.id}) }}" class="btn btn-primary btn-mini">
+          <i class="icon-edit"></i>
+        </a>
+        <button class="btn btn-danger btn-mini" name="btnEliminar">
+          <input type="text" value="{{ reparacion.id }}" class="hidden">
+          <i class="icon-remove"></i>
+        </button>
+      </td>
+    </tr>
+  {% if loop.last %}
+    </tbody>
+  </table>
+  
+  <div class="form-actions">
+    <div class="btn-group" role="group" aria-label="...">
+    
+    {% if pagina > 1 %}
+    <a href="{{ path('reparacion_list') }}?paginate={{ pagina - 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Anterior</a>
+    <button type="button" class="btn btn-default">Página {{ pagina }}</button>
+    <a href="{{ path('reparacion_list') }}?paginate={{ pagina + 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Siguiente</a>
+    {% else %}
+    <button type="button" class="btn btn-default">Página {{ pagina }}</button>
+    <a href="{{ path('reparacion_list') }}?paginate={{ pagina + 1 }}&busqueda={{ busqueda }}"
+        class="btn btn-default">Siguiente</a>
+    {% endif %}
+
+    </div>
+  </div>
+
+  {% endif %}
+{% else %}
+    <div class="alert alert-info">
+      No se ayaron resultados
+    </div>
+{% endfor %}

@@ -20,6 +20,30 @@
     {% block content %}
     {% endblock %}
 
+    {% if app.user %}
+    <div class="extra">
+      <div class="extra-inner">
+        <div class="container">
+          <div class="row">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-inner">
+        <div class="container">
+          <div class="row">
+              <div class="span12">
+                © 2016 Motoallchay
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/excanvas.min.js') }}"></script>

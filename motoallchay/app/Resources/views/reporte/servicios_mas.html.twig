@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Monto del día {% endblock %}
+
+{% block css %}
+  <link href="{{ asset('css/widget-form-buscar.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+          <div class="widget">
+            <div class="widget-header">
+              <div class="widget-header"> <i class="shortcut-icon icon-money"></i>
+                <h3>Monto del día</h3>
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Servicio</th>
+                  <th>Cantidad de Reparaciones</th>
+                  <th>Monto Recaudado</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in resultados %}
+                <tr>
+                  <td>{{ item.servicios }}</td>
+                  <td>{{ item.cantidad }}</td>
+                  <td>{{ item.monto }} <b><i> S/.</i></b></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+
+{% endblock %}

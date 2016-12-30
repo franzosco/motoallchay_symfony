@@ -13,6 +13,13 @@ class SessionController extends Controller
      */
     public function indexAction(Request $request)
     {   
-        return $this->render('session/index.html.twig');
+		$helper = $this->get('security.authentication_utils');
+
+	    return $this->render('session/index.html.twig', [
+	        // last username entered by the user (if any)
+	        'last_username' => $helper->getLastUsername(),
+	        // last authentication error (if any)
+	        'error' => $helper->getLastAuthenticationError(),
+	    ]);
     }
 }

@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Monto del día {% endblock %}
+
+{% block css %}
+  <link href="{{ asset('css/widget-form-buscar.css') }}" rel="stylesheet" />
+{% endblock %}
+
+{% block content %}
+
+<div class="main">
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span10 offset1">
+          <div class="widget">
+            <div class="widget-header">
+              <div class="widget-header"> <i class="shortcut-icon icon-money"></i>
+                <h3>Monto del día</h3>
+              </div>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+              
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Nombres</th>
+                  <th>Apellidos</th>
+                  <th>DNI</th>
+                  <th>username</th>
+                  <th>fecha de creación</th>
+                  <th>Teléfono</th>
+                  <th>Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for item in resultados %}
+                <tr>
+                  <td>{{ item.name }}</td>
+                  <td>{{ item.lastName }}</td>
+                  <td>{{ item.dni }}</td>
+                  <td>{{ item.username }}</td>
+                  <td>{{ item.createAt|date }}</td>
+                  <td>{{ item.telefono }}</td>
+                  <td>{{ item.tipo }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+</div>
+
+{% endblock %}

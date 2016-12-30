@@ -1,9 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    
+{% block content %}
+
+  <div class="main-inner">
+    <div class="container">
+      <div class="row">
+        <div class="span8 offset2">
+        <div class="widget ">
+          <div class="widget-header">
+            <i class="icon-plus"></i>
+            <h3>Registrar Moto</h3>
+            <button type="button" class="btn btn-danger" id="btnEliminar" 
+              style="float: right; margin: 6px 6px 0 0">
+              <a href="{{ path('usuario_eliminar', { 'id': id }) }}" hidden></a>
+              Eliminar
+            </button>
+          </div>
+          <div class="widget-content">
+
+            {{ include("usuario/widgets/usuario_form.html.twig", {'form': form}) }}
+            
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 {% endblock %}
 
-{% block stylesheets %}
+{% block js %}
+<script>
 
+$( document ).ready(function() {
+  $("#usuario_form_username")[0].disabled = true;
+  
+  var value = $("#btnEliminar")[0];
+
+  value.onclick = function(e){
+    console.log(e.target.firstElementChild.href);
+    if (confirm("Desea Eliminar?"))
+    {
+      window.location.replace(e.target.firstElementChild.href);
+    }
+  }
+
+  $("#form_usuario").submit(function(e){
+    $("#usuario_form_username")[0].disabled = false;
+    return true;
+  }); 
+
+});
+
+</script>
 {% endblock %}
