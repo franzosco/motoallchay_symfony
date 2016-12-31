@@ -8,6 +8,13 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+
+/*
+ * Este es el Modelo Reparación que se conecta con la base de datos,
+ * Este modelo mapea la base de datos y ahce las consultas mas 
+ * fáciles.
+ */
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="reparacion")

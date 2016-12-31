@@ -1,144 +1,84 @@
-DROP DATABASE IF EXISTS `motoallchaydb`;
 
-CREATE DATABASE `motoallchaydb`;
 
-USE `motoallchaydb`;
+INSERT INTO `symfony_demo_user` (`id`, `username`, `email`, `password`, `roles`, `dni`, `name`, `last_name`, `tipo`, `telefono`, `active`, `create_at`) VALUES
+(1, 'admin', 'elsa1@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Elza Elizabet', 'Aedo Morales', 'Administrador', '12123133', 1, '2015-10-30 00:00:00'),
+(2, 'elsa', 'root@root.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Nelida Alicia', 'Alvares Vargas', 'Administrador', '12313144', 1, '2011-12-30 00:00:00'),
+(3, 'nelida', 'nelida@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Maria Flor', 'Cahuana Quispitupa', 'Administrador', '23123155', 1, '2016-12-30 00:00:00'),
+(4, 'maria', 'maria@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Evelyn', 'Ccahuana Herrera', 'Recepcionista', '123123166', 0, '2016-12-30 00:00:00'),
+(5, 'evelyn', 'evelyn@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Leonil', 'Chipana Huaman', 'Recepcionista', '12312177', 1, '2011-12-30 00:00:00'),
+(6, 'leonil', 'leonil@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Dean Dario', 'Cruz Rios', 'Recepcionista', '12312188', 1, '2016-12-30 00:00:00'),
+(7, 'dean', 'dean@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Shamili Esther', 'Damian Enrique', 'Recepcionista', '12313999', 0, '2016-12-30 00:00:00'),
+(8, 'esther', 'esther@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Karina', 'Garrafa Huamani', 'Recepcionista', '12313100', 1, '2016-12-30 00:00:00'),
+(9, 'karina', 'karina@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Jhon Christopher', 'Huaman Arroyo', 'Recepcionista', '12313111', 0, '2016-12-30 00:00:00'),
+(10, 'jhon', 'jhon@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Jimmy raddy', 'Huaman Ccayhuari', 'Recepcionista', '13123122', 1, '2015-12-30 00:00:00'),
+(11, 'raddy', 'raddy@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Sara Esther', 'Mendoza Choque', 'Recepcionista', '13123123', 1, '2015-12-30 00:00:00'),
+(12, 'sara', 'sara@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Jean Carlos', 'Peña Soto', 'Recepcionista', '22323123', 1, '2016-12-30 00:00:00'),
+(13, 'juan', 'juan@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Ely Jhanet', 'Pumapillo Cruz', 'Recepcionista', '33312123', 1, '2016-12-30 00:00:00'),
+(14, 'jhanet', 'jhanet@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Yulmer Mijael', 'Rojas Marcavillaca', 'Recepcionista', '44323123', 1, '2016-12-30 00:00:00'),
+(15, 'mijael', 'mijael@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Jojahan Brayan', 'Serrano Palma', 'Recepcionista', '53123123', 1, '2016-12-30 00:00:00'),
+(16, 'brayan', 'brayan@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Jhonatan Mateo', 'Soria Panuera', 'Recepcionista', '63123123', 0, '2016-12-30 00:00:00'),
+(17, 'mateo', 'mateo@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Diomides', 'Tantalla Cruz', 'Recepcionista', '77312323', 1, '2016-12-30 00:00:00'),
+(18, 'diomides', 'diomides@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Luz Edelmira', 'Terzi Tejada', 'Recepcionista', '88312312', 1, '2016-12-30 00:00:00'),
+(19, 'edelmira', 'edelmira@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Juan', 'Medina', 'Recepcionista', '99312312', 0, '2013-11-30 00:00:00'),
+(20, 'sonia', 'sonia@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_RECEPCIONISTA\"]', '12312312', 'Juan', 'Medina', 'Recepcionista', '12333312', 1, '2013-12-30 00:00:00'),
+(21, 'roza', 'roza@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_GERENTE\"]', '12312312', 'Juan', 'Medina', 'Gerente', '12355312', 1, '2016-12-30 00:00:00'),
+(22, 'sandra', 'sandra@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_GERENTE\"]', '12312312', 'Juan', 'Medina', 'Gerente', '12772312', 0, '2014-01-30 00:00:00'),
+(23, 'francisco', 'francisco@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_GERENTE\"]', '12312312', 'Juan', 'Medina', 'Gerente', '12317712', 1, '2014-12-30 00:00:00');
 
-DROP TABLE IF EXISTS `usuario`;
 
-CREATE TABLE `usuario` (
-  `id` INT(10) unsigned AUTO_INCREMENT NOT NULL,
-  `username` varchar(32) NOT NULL UNIQUE,
-  `password` varchar(40) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `last_name` varchar(40) NOT NULL,
-  `email` VARCHAR(60) NOT NULL UNIQUE,
-  `tipo` varchar(15) NOT NULL,
-  `active` varchar(1) NOT NULL,
-  `created_at` DATETIME NOT NULL,
+INSERT INTO `moto` (`id`, `placa`, `cliente_dni`, `color`, `marca`, `descripcion`) VALUES
+(6, 'LM-235', '45454545', 'Rojo', 'Yamaha', 'La moto en un más baja'),
+(7, 'LM-111', '46464646', 'Negro', 'Yamaha', 'Moto con mucho brillo'),
+(8, 'ABC-123', '43214321', 'Naranja', 'Honda', 'Moto de mujer'),
+(9, 'ABC-12', '45454547', 'Blanco', 'Honda', 'Moto montañera'),
+(10, 'ABC-32', '11234521', 'Negro', 'Yamaha', 'Moto muy baja'),
+(11, 'LM-44', '33322211', 'Negro', 'Yamaha', NULL),
+(12, 'LM-234', '13432332', 'Negro', 'Yamaha', NULL),
+(13, 'LM-113', '45453333', 'Verde', 'Honda', NULL),
+(14, 'LM-222', '45454545', 'Negro', 'Honda', NULL),
+(15, 'LM-237', '45454545', 'Amarillo', 'Honda', NULL),
+(16, 'LM-999', '65433456', 'Negro', 'Yamaha', NULL),
+(17, 'CC-33', '43214321', 'Negro', 'Yamaha', NULL),
+(18, 'CC-88', '12345678', 'Negro', 'Honda', NULL),
+(19, 'AR-432', '12312312', 'Negro', 'Honda', NULL),
+(20, 'AR-55', '65433456', 'Negro', 'Yamaha', NULL),
+(21, 'AR-22', '12312312', 'Negro', 'Honda', NULL),
+(22, 'AR-77', '12345678', 'Negro', 'Honda', NULL),
+(23,'azc-123','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(24,'azc-135','32456781','Verde','Yamaha','Una con el haciento un poco bajo'),
+(25,'zc-123','32456781','Amarillo','Yamaha','Una con el haciento un poco bajo'),
+(26,'ac-123','32456781','Negro','Yamaha','Una con el haciento un poco bajo'),
+(27,'az-123','32456781','Negro','Yamaha','Una moto un poco oxidada'),
+(28,'az-34','32456781','Verde','Yamaha','Una moto un poco oxidada'),
+(29,'az-55','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(30,'az-348','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(31,'azc-12','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(32,'azc-43','32456781','Rojo','Yamaha','Una con el haciento un poco bajo'),
+(33,'azc-53','32456781','Verde','Yamaha','Una moto un poco oxidada'),
+(34,'azc-87','32456781','Rojo','Yamaha','Una con el haciento un poco bajo'),
+(35,'azc-567','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(36,'azc-345','32456781','Negro','Yamaha','Una moto con el timón arqueado'),
+(37,'azc-222','32456781','Rojo','Yamaha','La moto del año'),
+(38,'azc-11','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(39,'azc-765','32456781','Verde','Yamaha','Una con el haciento un poco bajo'),
+(40,'azc-543','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(41,'azc-987','32456781','Rojo','Yamaha','Una con el haciento un poco bajo'),
+(42,'azc-780','32456781','Verde','Yamaha','Una moto un poco oxidada'),
+(43,'azc-435','32456781','Rojo','Yamaha','Una con el haciento un poco bajo'),
+(44,'azc-879','32456781','Azul','Yamaha','UUna con el haciento un poco bajo'),
+(45,'azc-432','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(46,'azc-766','32456781','Verde','Yamaha','Una con el haciento un poco bajo'),
+(47,'azc-507','32456781','Rojo','Yamaha','Una moto un poco oxidada'),
+(48,'azc-897','32456781','Verde','Yamaha','Una moto un poco oxidada');
 
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-DROP TABLE IF EXISTS `moto`;
-
-CREATE TABLE `moto` (
-  `id` INT(10) unsigned NOT NULL AUTO_INCREMENT,
-  `placa` varchar(7) NOT NULL UNIQUE,
-  `cliente_dni` char(8) NOT NULL,
-  `color` char(25) NOT NULL,
-  `marca` varchar(35) NOT NULL,
-  `descripcion` text NOT NULL,
-
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-DROP TABLE IF EXISTS `reparacion`;
-
-CREATE TABLE `reparacion` (
-  `id` INT(10) unsigned NOT NULL AUTO_INCREMENT,
-  `fecha_ingreso` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `fecha_entrega` TIMESTAMP NULL,
-  `moto_id` INT(10) unsigned NOT NULL,
-  `usuario_id` INT(10) unsigned NOT NULL,
-  `servicios` text NOT NULL,
-  `descripcion` text NULL,
-  `estado` varchar(10) DEFAULT 'pendiente',
-  `precio` Decimal(16,2) NOT NULL,
-
-  PRIMARY KEY (`id`),
-  FOREIGN KEY (`moto_id`) REFERENCES `moto`(`id`) ON DELETE CASCADE,
-  FOREIGN KEY (`usuario_id`) REFERENCES `usuario`(`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-LOCK TABLES `usuario` WRITE;
-
-INSERT INTO `usuario` VALUES 
-(1,'admin', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Mariluz', 'Llicahua Huanco','mariluz@gmail.com', 'administrador', 'Y', '2012-04-10 20:53:03'),
-(2,'elsa', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Elza Elizabet', 'Aedo Morales','elsa1@gmail.com', 'administrador', 'Y', '2016-04-10 20:53:03'),
-(3,'nelida', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Nelida Alicia', 'Alvares Vargas','nelida@gmail.com', 'administrador', 'Y', '2016-04-10 20:53:03'),
-(4,'maria', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Maria Flor', 'Cahuana Quispitupa','maria@gmail.com', 'cajero', 'N', '2016-04-10 20:53:03'),
-(5,'evelyn', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Evelyn', 'Ccahuana Herrera','evelyn@gmail.com', 'cajero', 'Y', '2015-04-10 20:53:03'),
-(6,'leonil', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Leonil', 'Chipana Huaman','leonil@gmail.com', 'cajero', 'Y', '2016-04-10 20:53:03'),
-(7,'dean', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Dean Dario', 'Cruz Rios','dean@gmail.com', 'cajero', 'N', '2014-04-10 20:53:03'),
-(8,'esther', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Shamili Esther', 'Damian Enrique','esther@gmail.com', 'cajero', 'Y', '2015-04-10 20:53:03'),
-(9,'karina', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Karina', 'Garrafa Huamani','karina@gmail.com', 'administrador', 'N', '2013-04-10 20:53:03'),
-(10,'jhon', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Jhon Christopher', 'Huaman Arroyo','jhon@gmail.com', 'cajero', 'Y', '2015-04-10 20:53:03'),
-(11,'raddy', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Jimmy raddy', 'Huaman Ccayhuari','raddy@gmail.com', 'cajero', 'Y', '2013-04-10 20:53:03'),
-(12,'sara', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Sara Esther', 'Mendoza Choque','sara@gmail.com', 'cajero', 'Y', '2014-04-10 20:53:03'),
-(13,'jean', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Jean Carlos', 'Peña Soto','juan@gmail.com', 'cajero', 'Y', '2016-04-10 20:53:03'),
-(14,'jhanet', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Ely Jhanet', 'Pumapillo Cruz','jhanet@gmail.com', 'cajero', 'Y', '2015-04-10 20:53:03'),
-(15,'mijael', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Yulmer Mijael', 'Rojas Marcavillaca','mijael@gmail.com', 'cajero', 'N', '2014-04-10 20:53:03'),
-(16,'brayan', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Jojahan Brayan', 'Serrano Palma','brayan@gmail.com', 'cajero', 'Y', '2016-04-10 20:53:03'),
-(17,'mateo', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Jhonatan Mateo', 'Soria Panuera','mateo@gmail.com', 'cajero', 'Y', '2013-04-10 20:53:03'),
-(18,'diomides', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Diomides', 'Tantalla Cruz','diomides@gmail.com', 'gerente', 'Y', '2016-04-10 20:53:03'),
-(19,'edelmira', '0140e9ae5182d2c4ab347984ea417cb8ba273904', 'Luz Edelmira', 'Terzi Tejada','edelmira@gmail.com', 'gerente', 'Y', '2016-04-10 20:53:03');
-
-UNLOCK TABLES;
-
-LOCK TABLES `moto` WRITE;
-
-INSERT INTO `moto` VALUES
-(1,'azc-123','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(2,'azc-135','32456781','verde','Yamaha','Una con el haciento un poco bajo'),
-(3,'zc-123','32456781','amarillo','Yamaha','Una con el haciento un poco bajo'),
-(4,'ac-123','32456781','negro','Yamaha','Una con el haciento un poco bajo'),
-(5,'az-123','32456781','negro','Yamaha','Una moto un poco oxidada'),
-(6,'az-34','32456781','verde','Yamaha','Una moto un poco oxidada'),
-(7,'az-55','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(8,'az-348','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(9,'azc-12','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(10,'azc-43','32456781','rojo','Yamaha','Una con el haciento un poco bajo'),
-(11,'azc-53','32456781','verde','Yamaha','Una moto un poco oxidada'),
-(12,'azc-87','32456781','rojo','Yamaha','Una con el haciento un poco bajo'),
-(13,'azc-567','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(14,'azc-345','32456781','negro','Yamaha','Una moto con el timón arqueado'),
-(15,'azc-222','32456781','rojo','Yamaha','La moto del año'),
-(16,'azc-11','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(17,'azc-765','32456781','verde','Yamaha','Una con el haciento un poco bajo'),
-(18,'azc-543','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(19,'azc-987','32456781','rojo','Yamaha','Una con el haciento un poco bajo'),
-(20,'azc-780','32456781','verde','Yamaha','Una moto un poco oxidada'),
-(21,'azc-435','32456781','rojo','Yamaha','Una con el haciento un poco bajo'),
-(23,'azc-879','32456781','azul','Yamaha','UUna con el haciento un poco bajo'),
-(24,'azc-432','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(25,'azc-766','32456781','verde','Yamaha','Una con el haciento un poco bajo'),
-(26,'azc-507','32456781','rojo','Yamaha','Una moto un poco oxidada'),
-(27,'azc-897','32456781','verde','Yamaha','Una moto un poco oxidada');
-
-UNLOCK TABLES;
-
-LOCK TABLES `reparacion` WRITE;
-
-INSERT INTO `reparacion` VALUES
-(1,NULL,NULL,1,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',49.90),
-(2,NULL,NOW() + INTERVAL 1 DAY,2,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',59.90),
-(3,NULL,NOW() + INTERVAL 1 DAY,3,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',69.90),
-(4,NULL,NOW() + INTERVAL 1 DAY,4,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',79.90),
-(5,NULL,NULL,5,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',89.90),
-(6,NULL,NULL,4,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',99.90),
-(7,NULL,NULL,2,5,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',109.90),
-(8,NULL,NULL,10,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',39.90),
-(9,NULL,NULL,11,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',29.90),
-(10,NULL,NOW() + INTERVAL 2 DAY,2,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',59.90),
-(11,NULL,NOW() + INTERVAL 2 DAY,3,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',479.90),
-(12,NULL,NOW() + INTERVAL 2 DAY,4,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',19.90),
-(13,NULL,NOW() + INTERVAL 3 DAY,5,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',39.90),
-(14,NULL,NOW() + INTERVAL 5 HOUR,6,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',89.90),
-(15,NULL,NOW() + INTERVAL 3 HOUR,7,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',499.90),
-(16,NULL,NOW() + INTERVAL 4 HOUR,8,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',349.90),
-(17,NULL,NOW() + INTERVAL 2 HOUR,9,16,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',149.90),
-(18,NULL,NULL,10,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(19,NULL,NULL,12,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(20,NULL,NOW() + INTERVAL 1 DAY,13,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',249.90),
-(21,NULL,NOW() + INTERVAL 3 DAY,14,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',249.90),
-(22,NULL,NOW() + INTERVAL 4 DAY,15,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',249.90),
-(23,NULL,NOW() + INTERVAL 2 DAY,16,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','entregado',249.90),
-(24,NULL,NULL,17,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(25,NULL,NULL,18,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(26,NULL,NULL,19,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(27,NULL,NULL,20,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(28,NULL,NULL,21,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90),
-(29,NULL,NULL,21,14,'Cambio de llanta','Tenia la llanta baja y el aro chueco','pendiente',249.90);
-
-UNLOCK TABLES;
+INSERT INTO `reparacion` (`id`, `moto_id`, `user_id`, `fecha_ingreso`, `fecha_entrega`, `servicios`, `descripcion`, `precio`) VALUES
+(11, 6, 1, '2016-12-30 21:24:53', '2016-12-30 21:27:05', 'Cambio de llanta', 'Se le cambió el aceite', '200'),
+(12, 12, 1, '2016-12-30 21:25:22', NULL, 'Cambio de llanta', NULL, '56'),
+(13, 14, 1, '2016-12-30 21:27:42', '2016-12-30 21:28:10', 'Cambio de llanta', NULL, '20'),
+(14, 14, 1, '2016-12-30 21:27:54', NULL, 'Cambio de llanta', NULL, '66'),
+(15, 9, 1, '2016-12-30 21:28:38', NULL, 'Cambio de llanta', NULL, '80'),
+(16, 16, 1, '2016-12-30 21:29:01', NULL, 'Revición completa', NULL, '400'),
+(17, 13, 1, '2016-12-30 21:29:16', NULL, 'Cambio de batería', NULL, '200'),
+(18, 19, 1, '2016-12-30 21:29:33', NULL, 'Cambio de frenos', NULL, '150'),
+(19, 23, 1, '2016-12-30 21:29:54', NULL, 'Cambio de aceite', NULL, '29');

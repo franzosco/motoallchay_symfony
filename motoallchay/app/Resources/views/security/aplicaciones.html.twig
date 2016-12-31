@@ -37,7 +37,7 @@
                 </a>
                 {% endif %}
 
-                {% if user.tipo == "Gerente" %}
+                {% if user.tipo == "Gerente" or user.tipo == "Administrador"%}
                 <a href="{{ path('reportes_list') }}" class="shortcut">
                   <i class="shortcut-icon icon-list-alt"></i>
                   <span class="shortcut-label">Aplicación de Reportes</span> 

@@ -2,10 +2,17 @@
 
 namespace AppBundle\Entity;
 
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/*
+ * Este es el Modelo Moto que se conecta con la base de datos,
+ * Este modelo mapea la base de datos y ahce las consultas mas 
+ * fáciles.
+ */
 
 /**
  * @ORM\Entity
@@ -24,7 +31,7 @@ class Moto
     /**
      * @ORM\Column(type="string", length=7, unique=true)
      * @Assert\Regex(
-     *     pattern     = "/^[A-z]{2,3}-[A-z]{2,3}$/",
+     *     pattern     = "/^([A-z]){2,3}-\d{2,3}$/",
      *     message="La placa no es inválida"
      * )
      * @Assert\NotBlank(

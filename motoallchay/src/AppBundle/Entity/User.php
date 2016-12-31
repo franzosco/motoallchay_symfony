@@ -8,6 +8,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
+/*
+ * Este es el User Moto que se conecta con la base de datos,
+ * Este modelo mapea la base de datos y ahce las consultas mas 
+ * fáciles.
+ */
+
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="symfony_demo_user")

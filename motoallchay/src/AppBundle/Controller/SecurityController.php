@@ -1,25 +1,12 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Controller used to manage the application security.
- * See http://symfony.com/doc/current/cookbook/security/form_login_setup.html.
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
+ * Controlador usado para la seguridad y login de los usuarios
  */
 class SecurityController extends Controller
 {
@@ -28,6 +15,7 @@ class SecurityController extends Controller
      */
     public function loginAction()
     {
+        // Registra en sesión al usuario si este es correcto
         $helper = $this->get('security.authentication_utils');
 
         return $this->render('security/index.html.twig', [
@@ -49,6 +37,8 @@ class SecurityController extends Controller
      */
     public function indexAction()
     {
+        // Enviamos el formulario de sesión o si está logeado
+        // Le mostramos la lista de acciones que puede hacer el usuario
         return $this->render('security/index.html.twig', [
             'last_username' => '',
             'error' => '',

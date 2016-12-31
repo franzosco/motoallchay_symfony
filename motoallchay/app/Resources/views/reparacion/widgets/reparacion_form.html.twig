@@ -6,6 +6,11 @@
     <div class="controls">
       {{ form_widget(form.placa, {'attr': {'class': 'span5 disabled'}}) }}
       {{ form_errors(form.placa) }}
+      {% if error %}
+        <p>{{ error }} 
+          <a href="{{ path('moto_crear') }}" target="_blank"> Regístrela aquí.</a>
+        </p>
+      {% endif %}
     </div>
   </div>
 

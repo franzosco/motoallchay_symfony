@@ -61,7 +61,7 @@
         </li>
         {% endif %}
         
-        {% if user.tipo == "Gerente" %}
+        {% if user.tipo == "Gerente" or user.tipo == "Administrador" %}
         <li id="reportes">
           <a href="{{ path('reportes_list') }}">
             <i class="icon-list-alt"></i>

@@ -14,7 +14,8 @@
           </div>
 
           <div class="widget-content">
-          {{ include("reparacion/widgets/reparacion_form.html.twig", {'form': form}) }}
+          {{ include("reparacion/widgets/reparacion_form.html.twig", 
+            {'form': form, 'error': error}) }}
           </div>
         </div>
 

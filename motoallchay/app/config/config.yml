@@ -1,16 +1,14 @@
+# Archivo de configuración de la base de datos, y entre otros
+
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
 
-# Put parameters here that don't need to change on each machine where the app is deployed
-# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
 
 framework:
-    #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -40,6 +38,7 @@ twig:
     strict_variables: "%kernel.debug%"
 
 # Doctrine Configuration
+# Configuración para la BD
 doctrine:
     dbal:
         driver:   pdo_mysql

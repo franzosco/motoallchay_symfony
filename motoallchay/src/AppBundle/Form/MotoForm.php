@@ -13,6 +13,9 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 class MotoForm extends AbstractType
 {
+    // Formulario para el modelo Moto, con este podemos verificar 
+    // que los datos sean los correctos cuando se envian a rregistrar
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
