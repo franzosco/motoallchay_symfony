@@ -317,8 +317,9 @@ class ReparacionController extends Controller
         // Si fue POST se enviará el formulario enviado con los 
         // errores que se cometieron
         return $this->render('reparacion/actualizar.html.twig', array(
-            'form' => $form->createView(),
-            'id'   => $id 
+            'id'    => $id,
+            'form'  => $form->createView(),
+            'error' => null
         ));
     }
 

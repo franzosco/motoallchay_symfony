@@ -39,7 +39,7 @@
   <div class="control-group">
     {{ form_label(form.precio, 'Precio' , {'label_attr': {'class': 'control-label'}}) }}
     <div class="controls">
-      <div class="input-prepend input-append">
+      <div class="input-prepend input-append" id="algo">
         <span class="add-on"><b><i>S/.</i></b></span>
         {{ form_widget(form.precio, {'attr': {'class': 'span2'}}) }}
         <span class="add-on">.00</span>
