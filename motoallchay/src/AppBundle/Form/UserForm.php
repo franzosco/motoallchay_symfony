@@ -36,7 +36,7 @@ class UserForm extends AbstractType
                         'Administrador' => 'Administrador',
                     ),
                 ))
-            ->add('active', CheckboxType::class, array('required' => false))
+            ->add('is_active', CheckboxType::class, array('required' => false))
             ->add('telefono', TextType::class)
             ->add('save', SubmitType::class, array('label' => 'Guardar'));
     }

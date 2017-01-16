@@ -1,6 +1,6 @@
 
 
-INSERT INTO `symfony_demo_user` (`id`, `username`, `email`, `password`, `roles`, `dni`, `name`, `last_name`, `tipo`, `telefono`, `active`, `create_at`) VALUES
+INSERT INTO `symfony_demo_user` (`id`, `username`, `email`, `password`, `roles`, `dni`, `name`, `last_name`, `tipo`, `telefono`, `is_active`, `create_at`) VALUES
 (1, 'admin', 'elsa1@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Elza Elizabet', 'Aedo Morales', 'Administrador', '12123133', 1, '2015-10-30 00:00:00'),
 (2, 'elsa', 'root@root.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Nelida Alicia', 'Alvares Vargas', 'Administrador', '12313144', 1, '2011-12-30 00:00:00'),
 (3, 'nelida', 'nelida@gmail.com', '$2y$13$0dvYTZTR7.vLNGpPEdqp/eUq4oeecC.tCdKKVPC9.pH6HEthAedYG', '[\"ROLE_ADMIN\"]', '12312312', 'Maria Flor', 'Cahuana Quispitupa', 'Administrador', '23123155', 1, '2016-12-30 00:00:00'),

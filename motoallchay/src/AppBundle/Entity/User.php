@@ -17,6 +17,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
  * @ORM\Table(name="symfony_demo_user")
+ * @UniqueEntity("dni",message="Lo sentimos, el DNI ya ha sido registrado")
  */
 class User implements UserInterface
 {
@@ -104,7 +105,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="boolean")
      */
-    private $active;
+    private $is_active;
 
     /**
      * @ORM\Column(type="datetime")
@@ -384,9 +385,9 @@ class User implements UserInterface
      *
      * @return User
      */
-    public function setActive($active)
+    public function setIsActive($is_active)
     {
-        $this->active = $active;
+        $this->is_active = $is_active;
 
         return $this;
     }
@@ -396,9 +397,9 @@ class User implements UserInterface
      *
      * @return boolean
      */
-    public function getActive()
+    public function getIsActive()
     {
-        return $this->active;
+        return $this->is_active;
     }
 
     /**
