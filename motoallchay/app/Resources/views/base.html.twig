@@ -17,8 +17,10 @@
   <body>
     {{ include("layouts/navbar.html.twig", {'user': app.user}) }}
 
+    <div class="main" style="min-height: 412px;">
     {% block content %}
     {% endblock %}
+    </div>
 
     {% if app.user %}
     <div class="extra">

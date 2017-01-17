@@ -25,3 +25,11 @@
   </div>
 
 {% endblock %}
+
+{% block js %}
+  <script>
+    $( document ).ready(function() {
+      $("#algo")[0].childNodes[2].textContent = null;
+    });
+  </script>
+{% endblock %}

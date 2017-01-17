@@ -11,6 +11,7 @@
   {% else %}
     {{ include("security/login.html.twig", 
     {'user': app.user, 'username': last_username, 'error': error }) }}
+    <script>document.getElementsByClassName("main")[0].className = "";</script>
   {% endif %}
 
 {% endblock %}

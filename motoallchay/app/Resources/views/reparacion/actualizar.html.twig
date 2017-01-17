@@ -36,6 +36,7 @@
 
 $( document ).ready(function() {
   $("#reparacion_form_placa")[0].disabled = true;
+  $("#algo")[0].childNodes[2].textContent = null;
   
 {% if app.user.tipo == "Administrador" %}
   var value = $("#btnEliminar")[0];
@@ -49,13 +50,12 @@ $( document ).ready(function() {
 {% else %}
   $("#reparacion_form_estado").val("Entregado");
 {% endif %}
-
+  
   $("#form_reparacion").submit(function(e){
     $("#reparacion_form_placa")[0].disabled = false;
     return true;
   }); 
 
 });
-
 </script>
 {% endblock %}

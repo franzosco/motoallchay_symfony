@@ -57,9 +57,9 @@
   </div>
 
   <div class="control-group">
-    {{ form_label(form.active, 'Estado Activo' , {'label_attr': {'class': 'control-label'}}) }}
+    {{ form_label(form.is_active, 'Estado Activo' , {'label_attr': {'class': 'control-label'}}) }}
     <div class="controls">
-      {{ form_widget(form.active, {'attr': {'checked': true}}) }}
+      {{ form_widget(form.is_active) }}
     </div>
   </div>
 

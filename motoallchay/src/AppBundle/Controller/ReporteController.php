@@ -153,7 +153,7 @@ class ReporteController extends Controller
 
         // Creamos una consulta de todos los usuarios activos
         $query = $repository->createQueryBuilder('u')
-            ->where("u.active = 1")
+            ->where("u.is_active = 1")
             ->getQuery();
 
         // Obtemos los usuarios activos

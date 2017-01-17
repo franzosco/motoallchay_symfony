@@ -6,6 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -38,7 +39,9 @@ class ReparacionForm extends AbstractType
                     ),
                 ))
             ->add('descripcion', TextareaType::class, array('required' => false))
-            ->add('precio', MoneyType::class)
+            ->add('precio', MoneyType::class, array(
+                    'label_attr' => array(),
+                ))
             ->add('save', SubmitType::class, array('label' => 'Guardar'));
     }
 }
